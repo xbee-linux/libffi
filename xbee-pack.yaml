@@ -1,0 +1,32 @@
+schema-version: 1.0
+
+type: builder
+
+in:
+  version: 3.4.2
+
+dependencies:
+    - automake
+    - autoconf
+    - m4
+    - libtool
+    - texinfo
+
+provision:
+  - url:
+      from: https://github.com/libffi/libffi/archive/refs/tags/v{% version %}.tar.gz
+      todir: "{% xbeeSrc %}"
+
+build:
+  - shell:
+      cmds:
+        - ./autogen.sh
+        - ./configure --prefix=/usr
+        - make
+        - make install DESTDIR={% xbeeOut %}
+        - rm {% xbeeOut %}/usr/lib/libffi.a
+      directory: "{% xbeeSrc %}/libffi-{% version %}"
+
+
+
+
