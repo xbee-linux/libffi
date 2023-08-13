@@ -17,7 +17,7 @@ description: |
 var:
   version: 3.4.2
 
-dependencies:
+builders:
     - automake
     - autoconf
     - m4
