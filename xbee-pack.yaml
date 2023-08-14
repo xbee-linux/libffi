@@ -25,9 +25,7 @@ builders:
     - texinfo
 
 provision:
-  - url:
-      from: https://github.com/libffi/libffi/archive/refs/tags/v{{ .version }}.tar.gz
-      todir: "{{ .xbee.src }}"
+  url: https://github.com/libffi/libffi/archive/refs/tags/v{{ .version }}.tar.gz
 
 build:
   - shell:
