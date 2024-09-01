@@ -15,7 +15,8 @@ description: |
   libffi: Contains the foreign function interface API functions
 
 var:
-  version: 3.4.2
+  xbee:
+    version: 3.4.2
 
 builders:
     - automake
@@ -25,7 +26,7 @@ builders:
     - texinfo
 
 provision:
-  url: https://github.com/libffi/libffi/archive/refs/tags/v{{ .version }}.tar.gz
+  url: https://github.com/libffi/libffi/archive/refs/tags/v{{ .xbee.version }}.tar.gz
 
 build:
   - shell:
@@ -35,7 +36,7 @@ build:
         - make
         - make install DESTDIR={{ .xbee.out }}
         - rm {{ .xbee.out }}/usr/lib/libffi.a
-      directory: "{{ .xbee.src }}/libffi-{{ .version }}"
+      directory: "{{ .xbee.src }}/libffi-{{ .xbee.version }}"
 
 
 
